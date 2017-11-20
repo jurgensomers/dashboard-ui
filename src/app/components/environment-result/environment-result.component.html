@@ -1,0 +1,14 @@
+<div class="col-12">
+  <div class="card border-primary" >
+    <div class="card-heading">
+    <h3 class="panel-title"><a href="#" [routerLink]="['/status/environments', environment.name]">{{environment.name }}</a></h3>
+    </div>
+    <div class="card-body">
+        <div class="row">
+          <div *ngFor="let group of environment.groups | orderBy : 'name'" class="col-lg-4">
+            <app-environment-group  [group]="group" [environment]="environment.name" ></app-environment-group>   
+          </div>
+        </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,7 @@
+<app-error-display [errorMessage]="errorMessage"></app-error-display>
+<div class="container col-12">   
+  <app-header-info [isLoading]="isLoading" [date]="result.date"></app-header-info>
+  <div *ngFor="let owner of result.owners">
+    <app-owner-result  [owner]="owner" [environments]="result.environments"></app-owner-result>
+  </div>
+</div>

@@ -4,5 +4,9 @@
 // The list of which env maps to which file can be found in `angular-cli.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  serviceEndpoint: 'http://localhost:9123',
+  refreshInterval: 60000,
+  sleepFrom:"20:00:00",
+  sleepUntil:"07:00:00"
 };

@@ -1,0 +1,26 @@
+<div class="modal-header">
+  <h5 class="modal-title">Edit TFS Build</h5>          
+</div>
+<div class="modal-body modal-lg">
+  <app-error-display [errorMessage]="errorMessage"></app-error-display>
+  <form ngShow="currentItem != null" #thisForm="ngForm">
+    <fieldset>   
+      <div class="form-group">
+        <label for="inputName">Name</label>
+          <select  class="form-control" name="inputName" [(ngModel)]="currentItem.name" required >
+          <option *ngFor="let bd of definitions" [value]="bd">{{bd}}</option>
+        </select>
+        <small id="nameHelp" class="form-text text-muted">The name of the build definition</small>
+      </div>
+      <div class="form-group">
+        <label for="inputOwner">Owner</label>
+        <input type="text" class="form-control" name="inputOwner"  #owner="ngModel" [ngClass]="{'is-invalid': owner.invalid}" placeholder="Enter owner" [(ngModel)]="currentItem.owner" required>
+        <small id="ownerHelp" class="form-text text-muted">The owner assigned to this build</small>
+      </div> 
+    </fieldset>
+  </form>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-primary" [disabled]="!thisForm.form.valid" (click)="save()">Save changes</button>
+  <button type="button" class="btn btn-secondary" (click)="close()">Cancel</button>
+</div>

@@ -1,0 +1,19 @@
+<div class="modal-header">
+  <h5 class="modal-title">System information</h5>          
+</div>
+<div class="modal-body"> 
+  <app-error-display [errorMessage]="errorMessage"></app-error-display>
+  <label>Server address is {{info.serverAddress}}</label><br />
+  <label>Server cache is automatically updated each {{info.serverCacheRefreshInterval}}</label><br />
+  <label>Server cache is not automatically refreshed from {{info.serverCacheSleep}}</label><br />
+  <label>Client screens are automatically updated each {{info.clientRefreshInterval}}</label><br />
+  <label>Client screens are not automatically updated from {{info.clientSleep}}</label><br />
+  <label>Auto navigation between service and TFS is </label>
+  <button class="btn btn-outline-success btn-sm" (click)="toggleAutoNavigation()" *ngIf="info.autoNavigation == 'on'">ON</button>
+  <button class="btn btn-outline-danger btn-sm" (click)="toggleAutoNavigation()" *ngIf="info.autoNavigation == 'off'">OFF</button>
+  <br />
+  <label *ngIf="info.autoNavigation == 'on'">Auto navigation will occur every {{info.autoNavigationInterval}}</label><br />          
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" (click)="close()">Cancel</button>
+</div>

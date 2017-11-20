@@ -1,3 +1,26 @@
-<h1>
-  {{title}}
-</h1>
+<div class="row">
+  <div class="col-lg-6">
+    <blockquote>
+      <h3><strong>Dashquoia</strong></h3>
+      <small><cite>your eye in the Sequoia system</cite></small>
+    </blockquote>
+  </div>
+  <div class="col-lg-6">
+    <ul class="nav nav-pills">
+      <li class="nav-item"><a [routerLinkActive]="['active']" class="nav-link" href="#" routerLink="/home">Home</a></li>
+      <li class="nav-item"><a [routerLinkActive]="['active']" class="nav-link" href="#" routerLink="/status/all">All</a></li>
+      <li class="nav-item"><a [routerLinkActive]="['active']" class="nav-link" href="#" routerLink="/status/owners">Owners</a></li>
+      <li class="nav-item"><a [routerLinkActive]="['active']" class="nav-link" href="#" routerLink="/status/groups">Groups</a></li>
+      <li class="nav-item"><a [routerLinkActive]="['active']" class="nav-link" href="#" routerLink="/status/environments">Environments</a></li>
+      <li class="nav-item"><a [routerLinkActive]="['active']" class="nav-link" href="#" routerLink="/tfs">TFS</a></li>
+      <li class="nav-item"><a [routerLinkActive]="['active']" class="nav-link" href="#" routerLink="/config">Configuration</a></li>
+      <li class="nav-item"><a [routerLinkActive]="['active']" class="nav-link" href="#" routerLink="/history">History</a></li>
+      <li class="nav-item"><button type="button" class="btn btn-outline-info" (click)="showInfo()" >System info</button></li> 
+    </ul>
+  </div>
+</div>
+<div class="pagination-center" style="margin:10px">
+  <router-outlet></router-outlet>
+</div>
+
+

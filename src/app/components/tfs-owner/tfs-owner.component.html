@@ -1,0 +1,38 @@
+<div class="col-12">
+  <div class="card border-primary" >
+    <div class="card-header">
+      <h5 class="card-title">TFS Build states {{owner}}</h5>
+    </div>
+    <div class="card-body">
+      <div class="row">         
+        <table class="table table-striped table-hover table-bordered">
+          <thead class="thead-dark">
+            <th>Build</th> 
+            <th>Status</th>  
+          </thead>
+          <tbody>
+            <tr *ngFor="let result of results.results | orderBy:'name'">
+              <td>{{result.name}}</td>
+              <td>
+                <span class="badge badge-pill badge-success" *ngIf="result.status=='Succeeded'">Succeeded</span>
+                <span class="badge badge-pill badge-success" *ngIf="result.status=='PartiallySucceeded'">PartiallySucceeded</span>
+                <span class="badge badge-pill badge-warning" *ngIf="result.status=='Unknown'">Unknown</span>
+                <span class="badge badge-pill badge-warning" *ngIf="result.status=='Canceled'">Canceled</span>
+                <span class="badge badge-pill badge-danger fadingblink" *ngIf="result.status=='Failed'">Failed</span>
+
+                <span class="badge badge-pill badge-success" *ngIf="result.status=='InProgress'">InProgress</span>
+                <span class="badge badge-pill badge-success" *ngIf="result.status=='Completed'">Completed</span>
+                <span class="badge badge-pill badge-warning" *ngIf="result.status=='Cancelling'">Cancelling</span>
+                <span class="badge badge-pill badge-warning" *ngIf="result.status=='Postponed'">Postponed</span>
+                <span class="badge badge-pill badge-warning" *ngIf="result.status=='NotStarted'">NotStarted</span>
+              </td>
+            </tr>  
+          </tbody>
+        </table>
+        <blockquote class="card-blockquote">
+          Latest update : {{results.date | date:'yyyy-MM-dd HH:mm:ss a'}} 
+        </blockquote>
+      </div>
+    </div>
+  </div>
+</div>

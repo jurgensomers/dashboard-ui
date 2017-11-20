@@ -1,0 +1,16 @@
+<app-error-display [errorMessage]="errorMessage"></app-error-display>
+<app-info-display  [infoMessage]="infoMessage"></app-info-display>
+<div class="container col-12">  
+  <app-header-info [isLoading]="isLoading" [date]="result.date" (onHistoryChanged)="loadHistory($event)"></app-header-info>
+  
+  <div class="row">
+    <div *ngFor="let group of result.groups |  orderBy:['name']">
+      <app-group-result  [group]="group" [environments]="result.environments" [history]="history"></app-group-result>
+    </div>
+  </div>
+
+</div>
+
+
+
+ 

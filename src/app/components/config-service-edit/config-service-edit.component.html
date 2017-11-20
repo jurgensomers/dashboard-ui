@@ -1,0 +1,76 @@
+<div class="modal-header">
+  <h5 class="modal-title">Edit service</h5>          
+</div>
+<div class="modal-body"> 
+  <app-error-display [errorMessage]="errorMessage"></app-error-display>
+  <form ngShow="currentItem != null" #thisForm="ngForm">
+    <fieldset>
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="form-group">        
+            <label for="inputName">Name</label>
+            <input type="text" class="form-control" name="inputName" placeholder="Enter name" [(ngModel)]="currentItem.name" required  #name="ngModel" [ngClass]="{'is-invalid': name.invalid}" >
+            <small id="nameHelp" class="form-text text-muted">The name of the service</small>
+          </div>
+          <div class="form-group">
+            <label for="inputAddress">Address</label>
+            <input type="text" class="form-control" name="inputAddress" placeholder="Enter address" [(ngModel)]="currentItem.address" required  #address="ngModel" [ngClass]="{'is-invalid': address.invalid}" >
+            <small id="addressHelp" class="form-text text-muted">The address of the service, without host</small>
+          </div>
+      
+
+          <div class="form-group">
+            <label for="inputNamespace">Namespace</label>
+            <input type="text" class="form-control" name="inputNamespace" placeholder="Enter namespace" [(ngModel)]="currentItem.namespace" required  #namespace="ngModel" [ngClass]="{'is-invalid': namespace.invalid}" >
+            <small id="namespaceHelp" class="form-text text-muted">The SOAP namespace of the request</small>
+          </div>
+          <div class="form-group">
+            <label for="inputAction">Action</label>
+            <input type="text" class="form-control" name="inputAction" placeholder="Enter action" [(ngModel)]="currentItem.action" required  #action="ngModel" [ngClass]="{'is-invalid': action.invalid}" >
+            <small id="actionHelp" class="form-text text-muted">The SOAP action</small>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6">       
+          <div class="form-group">
+            <label for="inputHost">Host</label>           
+            <select  class="form-control" name="inputHost" [(ngModel)]="currentItem.host" required  #host="ngModel" [ngClass]="{'is-invalid': host.invalid}" >
+              <option *ngFor="let host of hosts" [value]="host">{{host}}</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="inputBindingType">Binding type</label>
+            <select  class="form-control" name="inputBindingType" [(ngModel)]="currentItem.bindingtype" (change)="updateBindings()" required  #bindingtype="ngModel" [ngClass]="{'is-invalid': bindingtype.invalid}" >
+              <option *ngFor="let bindingType of bindingTypes" [value]="bindingType">{{bindingType}}</option>
+            </select>
+            <small id="bindingTypeHelp" class="form-text text-muted">The binding type</small>
+          </div>  
+        </div>
+        <div class="col-lg-6">
+          <div class="form-group">
+            <label for="inputType">Type</label>           
+            <select  class="form-control" name="inputType" [(ngModel)]="currentItem.type" required  #type="ngModel" [ngClass]="{'is-invalid': type.invalid}" >
+              <option>IsAlive</option>
+              <option>GetProcesses</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="inputBindingName">Binding name</label>
+            <select  class="form-control" name="inputBindingName" [(ngModel)]="currentItem.bindingname" required  #bindingname="ngModel" [ngClass]="{'is-invalid': bindingname.invalid}" >
+              <option *ngFor="let bindingName of bindings" [value]="bindingName">{{bindingName}}</option>
+            </select>
+            <small id="bindingNameHelp" class="form-text text-muted">The binding name</small>
+          </div>
+    
+        </div>
+      </div>
+    
+    </fieldset>
+  </form>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-primary"  [disabled]="!thisForm.form.valid"  (click)="save()">Save changes</button>
+  <button type="button" class="btn btn-secondary" (click)="close()">Cancel</button>
+</div>

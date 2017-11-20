@@ -1,0 +1,8 @@
+<app-error-display [errorMessage]="errorMessage"></app-error-display>
+<div class="container col-12">  
+  <app-header-info [isLoading]="isLoading" [date]="result.date"></app-header-info>
+
+  <div *ngFor="let environment of result.environments | orderBy: 'name'">
+    <app-environment-result  [environment]="environment"></app-environment-result>
+  </div>
+</div>

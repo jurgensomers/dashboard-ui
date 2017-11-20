@@ -1,0 +1,19 @@
+<div class="col-12">
+  <app-error-display [errorMessage]="errorMessage"></app-error-display>
+  <table class="table table-striped table-hover table-bordered">
+    <thead class="thead-dark">
+      <th>Environment</th>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Endpoint</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let ep of endpoints | orderBy:'environment'">
+        <td>{{ep.environment}}</td>
+        <td>{{ep.name}}</td>
+        <td>{{ep.type}}</td>        
+        <td>{{ep.endpoint}}</td>
+      </tr>  
+    </tbody>
+  </table>
+</div>

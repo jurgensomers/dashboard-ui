@@ -1,0 +1,50 @@
+<app-error-display [errorMessage]="errorMessage"></app-error-display>
+<div class="container">
+  <div class="row">
+
+    <div class="col">
+      <div class="card card-info border-primary" >
+        <div class="card-heading">
+          <h2 class="card-title"><a href="#" routerLink="/status/owners">Teams</a></h2>
+        </div>
+        <div class="card-body">
+            <ul class="list-group">
+              <li *ngFor="let owner of owners | orderBy" class="list-group-item">
+                <a href="#" [routerLink]="['/status/owners', owner]">{{owner}}</a>
+              </li>
+          </ul>
+        </div> 
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card card-info border-primary" >
+        <div class="card-heading">
+          <h2 class="card-title"><a href="#" routerLink="/status/environments">Environments</a></h2>
+        </div>
+        <div class="card-body">
+            <ul class="list-group">
+              <li *ngFor="let environment of environments | orderBy" class="list-group-item">
+                <a href="#" [routerLink]="['/status/environments', environment]">{{environment}}</a>
+              </li>
+          </ul>
+        </div> 
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card card-info border-primary" >
+        <div class="card-heading">
+          <h2 class="card-title"><a href="#" routerLink="/status/groups">Groups</a></h2>
+        </div>
+        <div class="card-body">
+            <ul class="list-group">
+              <li *ngFor="let group of groups | orderBy" class="list-group-item">
+                <a href="#" [routerLink]="['/status/groups', group]">{{group}}</a>
+              </li>
+          </ul>
+        </div> 
+      </div>
+    </div>
+  </div>
+</div>

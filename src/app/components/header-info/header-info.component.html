@@ -1,0 +1,4 @@
+ <blockquote class="card-blockquote" *ngIf="!isLoading">
+     Latest update : {{date | date:'yyyy-MM-dd HH:mm:ss a'}} 
+  </blockquote> 
+  <span class="badge badge-info" *ngIf="isLoading">Loading</span>

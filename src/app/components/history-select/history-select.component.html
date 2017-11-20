@@ -1,0 +1,19 @@
+<div class="modal-header">
+  <h5 class="modal-title">View history</h5>          
+</div>
+<div class="modal-body">
+  <form name="myform" #thisForm="ngForm">
+    <fieldset>
+      <div class="form-group">
+            <label for="inputHistory">Date/time</label>           
+            <select  class="form-control" name="inputHistory" [(ngModel)]="selectedItem" >
+              <option *ngFor="let h of list | orderBy" [value]="h">{{h}}</option>
+            </select>
+          </div>      
+    </fieldset>
+  </form>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-primary" (click)="select()">Select</button>
+  <button type="button" class="btn btn-secondary" (click)="close()">Cancel</button>
+</div>

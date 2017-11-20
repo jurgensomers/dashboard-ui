@@ -1,0 +1,43 @@
+<div class="modal-header">
+  <h5 class="modal-title">Edit group</h5>          
+</div>
+<div class="modal-body modal-lg">
+  <app-error-display [errorMessage]="errorMessage"></app-error-display>
+  <form ngShow="currentItem != null" #thisForm="ngForm">
+    <fieldset>
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="form-group">
+            <label for="inputOwner">Owner</label>
+            <input type="text" class="form-control" name="inputOwner"  #owner="ngModel" [ngClass]="{'is-invalid': owner.invalid}" placeholder="Enter owner" [(ngModel)]="currentItem.owner" required>
+            <small id="ownerHelp" class="form-text text-muted">The owner assigned to this group</small>
+          </div>
+          <div class="form-group">
+            <label for="inputName">Name</label>
+            <input type="text" class="form-control" #name="ngModel" [ngClass]="{'is-invalid': name.invalid}" name="inputName" placeholder="Enter name" [(ngModel)]="currentItem.name" required>
+            <small id="nameHelp" class="form-text text-muted">The name of the group</small>
+          </div>
+        </div>
+        <div class="col-lg-8">
+          <div class="form-group">
+            <label for="inputServices">Services</label>
+            <div class="input-group">                  
+                <select  class="form-control" name="inputService" [(ngModel)]="selectedService" >
+                  <option *ngFor="let service of services">{{service}}</option>
+                </select>
+                <span class="input-group-addon" id="basic-addon1"><button type="button" class="btn btn-sm btn-primary" (click)="addService()">Add service</button></span>
+            </div>
+            <ul class="list-group">
+              <li *ngFor="let service of currentItem.services" class="list-group-item">
+                <button type="button" class="btn btn-sm btn-warning"  (click)="deleteService(service)">Delete service</button> {{service}}</li>
+            </ul>
+          </div>     
+        </div>
+      </div>
+    </fieldset>
+  </form>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-primary" [disabled]="!thisForm.form.valid" (click)="save()">Save changes</button>
+  <button type="button" class="btn btn-secondary" (click)="close()">Cancel</button>
+</div>

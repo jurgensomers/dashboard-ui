@@ -1,0 +1,9 @@
+<div class="row">
+  <div class="col-lg-12">
+    <div class="alert alert-dismissible alert-warning" [hidden]="warningMessage == null">
+      <button type="button" class="close" data-dismiss="alert" (click)="close()">&times;</button>
+      <h4>Warning!</h4>
+      {{warningMessage}}
+    </div>
+  </div>
+</div>

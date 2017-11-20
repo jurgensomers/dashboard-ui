@@ -1,0 +1,25 @@
+<div class="card border-info">
+  <div class="card-header">
+    <h5 class="card-title"><a href="#" [routerLink]="['/status/groups', group.name]">{{ group.name }}</a></h5>
+  </div>
+  <div class="card-body">
+    <table class="table table-striped table-hover table-bordered">
+      <thead class="thead-dark">
+        <th>Service/Subscription</th>  
+        <th>Status</th>      
+      </thead>
+      <tbody>
+        <tr *ngFor="let service of group.services | orderBy :'name'">
+          <td>{{service.name}}</td>
+          <td>
+            <a href="#" [routerLink]="['/history', environment, service.name]">
+              <span class="badge badge-pill badge-success" *ngIf="service.status=='Up'">Up</span>
+              <span class="badge badge-pill badge-warning" *ngIf="service.status=='Unknown'">Unknown</span>
+              <span class="badge badge-pill badge-danger fadingblink" *ngIf="service.status=='Down'">Down</span>
+            </a>
+          </td>
+        </tr>  
+      </tbody>
+    </table>
+  </div>
+</div>
